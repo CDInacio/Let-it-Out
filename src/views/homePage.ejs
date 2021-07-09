@@ -1,0 +1,69 @@
+<%- include('./includes/head')%>
+
+  <div class="hero">
+    <div class="navbar container">
+      <button type="button"><a href="#section2">Entrar</a></button>
+    </div>
+    <div class="content">
+      <h4>Seja Bem Vindo ao</h4>
+      <h1>Let it Out</h1>
+      <span>Você precisa logar ou criar uma conta para escrever sua histórias</span>
+    </div>
+    <div class="arrow-down bounce"><a href="#section1"><i class="fas fa-chevron-down fa-3x"></i></a></div>
+  </div>
+  <div class="error-msg">
+    <%- include('includes/messages') %>
+  </div>
+  <div class="login-area">
+
+    <div id="sec" class="login-wrap">
+      <div class="login-html" id="section1">
+        <div id="section2"></div>
+        <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Login</label>
+        <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Cadastro</label>
+        <div class="mar login-form">
+          <div class="sign-in-htm">
+            <form action="/" method="POST">
+              <div class="group">
+                <label for="user" class="label">Email</label>
+                <input id="user" type="email" name="email" class="input">
+              </div>
+              <div class="group">
+                <label for="pass" class="label">Senha</label>
+                <input id="pass" type="password" name="password" class="input" data-type="password">
+              </div>
+              <div class="group">
+                <input type="submit" class="button" value="Entrar">
+              </div>
+            </form>
+          </div>
+          
+          <div class="sign-up-htm">
+            <form action="/signup" method="POST">
+              <div class="group">
+                <label for="user" class="label">Nome de usuário</label>
+                <input id="user" type="text" name="name" class="input">
+              </div>
+              <div class="group">
+                <label for="pass" class="label">Email </label>
+                <input id="pass" type="email" name="email" class="input">
+              </div>
+              <div class="group">
+                <label for="pass" class="label">Senha</label>
+                <input id="pass" type="password" name="password" class="input" data-type="password">
+              </div>
+              <div class="group ">
+                <input type="submit" class="button" value="Cadastrar">
+              </div>
+            </form>
+            <div class="hr"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <%- include('./includes/footer')%>

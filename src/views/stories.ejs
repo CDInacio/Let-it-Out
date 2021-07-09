@@ -1,0 +1,56 @@
+<%- include('./includes/head')%>
+
+    <div class="navbar-stories">
+        <div class="navigation">
+            <div class="logo">
+                <span>Let it Out</span>
+            </div>
+            <div class="hamburguer active"><i class="fas fa-bars"></i></div>
+            <div class="links active">
+                <ul class="link-itens">
+                    <li><a href="/user">Home</a></li>
+                    <li><a href="/user/writeStory">Publicar</a></li>
+                    <li><a href="">Histórias</a></li>
+                    <li><a href="">Sobre nós</a></li>
+                    <li><a href="/logout">Sair</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="welcome-wrapper container">
+        <div class="header">Histórias públicas</div>
+        <div class="description">
+            
+        </div>
+    </div>
+
+   
+        <div class="stories-wrapper">
+            <% stories.forEach(story=> { %>
+                <div class="single-story">
+                    <div class="date">
+                        <%- moment(story.createdAt).format('DD-MM-YYYY') %>
+                    </div>
+                    <div class="title">
+                        <%- truncate(story.title, 20) %>
+                    </div>
+                    <div class="user">
+                        por <%- story.user.name%>
+                    </div>
+                    <div class="body">
+                        <%- truncate(story.body, 150) %>
+                    </div>
+                    <button type="button"><a href="/user/story/<%- story._id%>">Leia mais</a></button>
+                </div>
+                <% }) %>
+        </div>
+
+        <div class="footer">
+            <div class="container"></div>
+        </div>
+
+            <%- include('./includes/footer')%>
+
+
+

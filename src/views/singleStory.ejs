@@ -1,0 +1,43 @@
+<%- include('./includes/head')%>
+<div class="navbar-stories">
+    <div class="navigation">
+        <div class="logo">
+            <span>Let it Out</span>
+        </div>
+        <div class="hamburguer active"><i class="fas fa-bars"></i></div>
+            <div class="links active">
+            <ul class="link-itens">
+                <li><a href="/user">Home</a></li>
+                <li><a href="/user/writeStory">Publicar</a></li>
+                <li><a href="/user/stories">Histórias</a></li>
+                <li><a href="">Sobre nós</a></li>
+                <li><a href="/logout">Sair</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="img-singleStory">Sua história</div>
+
+<div class="singleStory-wrapper">
+    <div class="title"><%- story.title%></div>
+    <div class="date">por <%- story.user.name%>, <%-  moment(story.createdAt).format('DD-MM-YYYY') %></div>
+    <div class="body"><%- story.body%></div>
+
+    <% if (story.user._id == user.id) { %>
+        <div class="icons">
+            <form action="/user/story/<%- story._id%>" method="POST" id="delete-form">
+                <input type="hidden" name="_method" value="DELETE">
+                <button type="submit" >
+                       <i class="far fa-trash-alt fa-2x"></i>
+                </button>
+            </form>
+            <a href="/user/story/edit/<%- story._id%>"><i class="far fa-edit fa-2x"></i></a>
+        </div>
+    <% } %>
+</div>
+
+<%- include('./includes/footer')%>
+
+
+

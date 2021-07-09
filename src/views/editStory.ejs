@@ -1,0 +1,51 @@
+<%- include('./includes/head')%>
+
+    <div class="navbar-stories">
+        <div class="navigation">
+            <div class="logo">
+                <span>Let it Out</span>
+            </div>
+            <div class="hamburguer active"><i class="fas fa-bars"></i></div>
+            <div class="links active">
+                <ul class="link-itens">
+                    <li><a href="/user">Home</a></li>
+                    <li><a href="/user/writeStory">Publicar</a></li>
+                    <li><a href="/user/stories">Histórias</a></li>
+                    <li><a href="">Sobre nós</a></li>
+                    <li><a href="/logout">Sair</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="img-writePage">Nos conte sua história</div>
+
+    <div class="form-wrapper">
+            <form class="form-writeStory" action="/user/story/edit/<%- story._id%>" method="POST">
+                <input type="hidden" name="_method" value="PUT">
+                <div class="group">
+                    <input type="text" name="title" id="title" placeholder="Título" value="<%- story.title%>">
+                </div>
+                <div class="group select">
+                    <select name="status" id="" class="dropdown" >
+                        <option class="label" selected><%- story.status %></option>
+                        <option value="public">Público</option>
+                        <option value="private">Privado</option>
+                      </select>
+                </div>
+                <div class="group">
+                    <textarea name="body" id="" cols="50" rows="15" placeholder="<%- story.body%>"></textarea>
+                </div>
+                <div class="group">
+                    <button type="submit" style="background-color: #292A2D; color: #fff;">Salvar</button>
+                    <button type="button" style="background-color: #324D5C; color: #fff;"><a href="/user">Cancelar</a></button>
+                </div>
+            </form>
+    </div>
+    
+    <div class="footer">
+        <div class="container"></div>
+    </div>
+
+    <%- include('./includes/footer')%>
